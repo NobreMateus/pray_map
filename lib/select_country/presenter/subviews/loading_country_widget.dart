@@ -6,7 +6,9 @@ class LoadingCountryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(children: [
-      Center(child: Text("Loading Country Widget")),
+      SizedBox(height: 24),
+      Center(child: Text("Procurando país")),
+      SizedBox(height: 24),
       CircularProgressIndicator(),
     ]);
   }

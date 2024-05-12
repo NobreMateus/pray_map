@@ -12,6 +12,7 @@ class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
     on<PerformSelectCountryEvent>(onPerformSelectCountryEvent);
     on<FinishLoadingEvent>(onFinishLoadingEvent);
     on<BackToStartEvent>(onBackToStartEvent);
+    on<PrayedEvent>(onPrayedEvent);
   }
 
   onPerformSelectCountryEvent(
@@ -34,6 +35,21 @@ class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
     BackToStartEvent event,
     Emitter<SelectCountryState> emit,
   ) {
+    emit(SelectCountrySearchState());
+  }
+
+  onPrayedEvent(
+    PrayedEvent event,
+    Emitter<SelectCountryState> emit,
+  ) async {
+    final country = (state as SelectCountryShowCountryState).country;
+    emit(SelectCountryLoadingState());
+    await Future.wait(
+      [
+        repository.pray(country.nomeEn),
+        Future.delayed(const Duration(seconds: 3)),
+      ],
+    );
     emit(SelectCountrySearchState());
   }
 }

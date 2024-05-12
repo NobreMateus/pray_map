@@ -1,3 +1,5 @@
+import 'package:map_study/domain/country_data.dart';
+
 abstract class SelectCountryState {}
 
 class SelectCountrySearchState extends SelectCountryState {}
@@ -5,7 +7,7 @@ class SelectCountrySearchState extends SelectCountryState {}
 class SelectCountryLoadingState extends SelectCountryState {}
 
 class SelectCountryShowCountryState extends SelectCountryState {
-  final String country;
+  final CountryData country;
 
   SelectCountryShowCountryState({required this.country});
 }

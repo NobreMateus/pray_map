@@ -11,12 +11,14 @@ class SearchCountryWidget extends StatelessWidget {
     final bloc = context.read<SelectCountrBloc>();
     return Center(
         child: Column(children: [
-      const Text("Search Country"),
+      const SizedBox(height: 24),
+      const Text("Encontre um país para orar"),
+      const SizedBox(height: 24),
       ElevatedButton(
         onPressed: () {
           bloc.add(PerformSelectCountryEvent());
         },
-        child: const Text("Clique para pegar um país para orar"),
+        child: const Text("Encontrar"),
       ),
     ]));
   }
