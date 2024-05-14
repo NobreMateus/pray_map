@@ -22,7 +22,7 @@ class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
     emit(SelectCountryLoadingState());
     await Future.delayed(const Duration(seconds: 3));
     final countries = await repository.getCountries();
-    final selectedCountry = countries[Random().nextInt(countries.length - 1)];
+    final selectedCountry = countries[0];
     emit(SelectCountryShowCountryState(country: selectedCountry));
   }
 

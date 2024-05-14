@@ -9,27 +9,33 @@ abstract class SelectCountryRepository {
 class SelectCountryRepositoryImp extends SelectCountryRepository {
   @override
   Future<List<CountryData>> getCountries() async {
-    return [
-      CountryData(
-        nomeEn: "África do Sul",
-        nomePt: "South Africa",
-        capital: " Cidade do Cabo",
-        continente: "continente",
-        totalPopulacao: "totalPopulacao",
-        cristaos: "cristaos",
-        cristaosEvangelicos: "cristaosEvangelicos",
-        maiorReligiao: "maiorReligiao",
-        religiaoMaisCresce: "religiaoMaisCresce",
-        maioresGruposEtnicos: "maioresGruposEtnicos",
-        idiomaOficial: "idiomaOficial",
-        totalIdiomas: "totalIdiomas",
-        economia: "economia",
-        politica: "politica",
-        pedidosOracao: "pedidosOracao",
-        posicaoPerseguicao: "posicaoPerseguicao",
-        fonte: "fonte",
-      ),
-    ];
+    final firData = await FirebaseFirestore.instance.collection('country_pray').doc('first').get();
+    final countriesData = firData.data()?["countries"] as List<dynamic>;
+    final countries = countriesData
+        .map(
+          (country) => CountryData(
+            nomeEn: country["nomeEn"],
+            nomePt: country["nomePt"],
+            linkBandeira: country["linkBandeira"],
+            capital: country["capital"],
+            continente: country["continente"],
+            totalPopulacao: country["totalPopulacao"],
+            cristaos: country["cristaos"],
+            cristaosEvangelicos: country["cristaosEvangelicos"],
+            maiorReligiao: country["maiorReligiao"],
+            religiaoMaisCresce: country["religiaoMaisCresce"],
+            maioresGruposEtnicos: country["maioresGruposEtnicos"],
+            idiomaOficial: country["idiomaOficial"],
+            totalIdiomas: country["totalIdiomas"],
+            economia: country["economia"],
+            politica: country["politica"],
+            pedidosOracao: (country["pedidosOracao"] as String).split(";"),
+            posicaoPerseguicao: country["posicaoPerseguicao"],
+            fonte: country["fonte"],
+          ),
+        )
+        .toList();
+    return countries;
   }
 
   @override

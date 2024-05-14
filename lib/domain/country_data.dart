@@ -1,6 +1,7 @@
 class CountryData {
   final String nomeEn;
   final String nomePt;
+  final String linkBandeira;
   final String capital;
   final String continente;
   final String totalPopulacao;
@@ -13,13 +14,14 @@ class CountryData {
   final String totalIdiomas;
   final String economia;
   final String politica;
-  final String pedidosOracao;
+  final List<String> pedidosOracao;
   final String posicaoPerseguicao;
   final String fonte;
 
   CountryData({
     required this.nomeEn,
     required this.nomePt,
+    required this.linkBandeira,
     required this.capital,
     required this.continente,
     required this.totalPopulacao,
