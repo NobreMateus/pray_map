@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:map_study/select_country/widgets/definitios.dart';
 
 class PrayingCard extends StatelessWidget {
@@ -46,13 +47,10 @@ class PrayingCard extends StatelessWidget {
                         width: 24,
                         child: Text((i + 1).toString()),
                       ),
-                      SizedBox(
-                        width: 400,
+                      Expanded(
                         child: Text(
                           pedidosOracao[i],
-                          style: const TextStyle(
-                            fontSize: 17,
-                          ),
+                          style: commomTextStyle,
                         ),
                       ),
                     ],

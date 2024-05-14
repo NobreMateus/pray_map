@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:map_study/select_country/widgets/definitios.dart';
 
 class IconTitleInfo extends StatelessWidget {
   final String title;
@@ -20,8 +21,14 @@ class IconTitleInfo extends StatelessWidget {
           icon,
           size: 36,
         ),
-        Text(title),
-        Text(info),
+        Text(
+          title,
+          style: smallTitleStyle,
+        ),
+        Text(
+          info,
+          style: commomTextStyle,
+        ),
       ],
     );
   }

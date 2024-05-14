@@ -32,48 +32,48 @@ class MainCountryInfoCard extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Text(
-              country,
-              textAlign: TextAlign.center,
-              style: countryTitleStyle,
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                const SizedBox(width: 12),
-                SizedBox(
-                  width: 140,
-                  child: IconTitleInfo(
-                    icon: Icons.approval_outlined,
-                    title: "Continente",
-                    info: continent,
+        child: LayoutBuilder(builder: (context, constraints) {
+          return Column(
+            children: [
+              Text(
+                country,
+                textAlign: TextAlign.center,
+                style: countryTitleStyle,
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  SizedBox(
+                    width: constraints.maxWidth / 3,
+                    child: IconTitleInfo(
+                      icon: Icons.approval_outlined,
+                      title: "Continente",
+                      info: continent,
+                    ),
                   ),
-                ),
-                const Spacer(),
-                SizedBox(
-                  width: 140,
-                  child: IconTitleInfo(
-                    icon: Icons.place_outlined,
-                    title: "Capital",
-                    info: continent,
+                  const Spacer(),
+                  SizedBox(
+                    width: constraints.maxWidth / 3,
+                    child: IconTitleInfo(
+                      icon: Icons.place_outlined,
+                      title: "Capital",
+                      info: continent,
+                    ),
                   ),
-                ),
-                const Spacer(),
-                SizedBox(
-                  width: 140,
-                  child: IconTitleInfo(
-                    icon: Icons.people_outline,
-                    title: "População Total",
-                    info: continent,
+                  const Spacer(),
+                  SizedBox(
+                    width: constraints.maxWidth / 3,
+                    child: IconTitleInfo(
+                      icon: Icons.people_outline,
+                      title: "População",
+                      info: population,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 12),
-              ],
-            ),
-          ],
-        ),
+                ],
+              ),
+            ],
+          );
+        }),
       ),
     );
   }

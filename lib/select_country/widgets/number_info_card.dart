@@ -37,12 +37,12 @@ class NumberInfoCard extends StatelessWidget {
             ),
             Text(
               unity,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
+              style: smallTitleStyle,
             ),
-            Text(info),
+            Text(
+              info,
+              style: commomTextStyle,
+            ),
           ],
         ),
       ),

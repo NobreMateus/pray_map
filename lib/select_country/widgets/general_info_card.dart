@@ -35,7 +35,10 @@ class GeneralInfoCard extends StatelessWidget {
               title,
               style: titleStyle,
             ),
-            Text(content),
+            Text(
+              content,
+              style: commomTextStyle,
+            ),
           ],
         ),
       ),

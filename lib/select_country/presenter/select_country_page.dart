@@ -20,21 +20,28 @@ class _SelectCountryPageState extends State<SelectCountryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black26,
       body: BlocProvider(
         create: (_) => _bloc,
-        child: BlocBuilder<SelectCountrBloc, SelectCountryState>(builder: (context, state) {
-          if (state is SelectCountrySearchState) {
-            return ShowCountryWidget();
-            return const SearchCountryWidget();
-          }
-          if (state is SelectCountryLoadingState) {
-            return const LoadingCountryWidget();
-          }
-          if (state is SelectCountryShowCountryState) {
-            return ShowCountryWidget();
-          }
-          return const SizedBox();
-        }),
+        child: Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width > 500 ? 500 : double.infinity,
+            child: BlocBuilder<SelectCountrBloc, SelectCountryState>(builder: (context, state) {
+              if (state is SelectCountrySearchState) {
+                return const SearchCountryWidget();
+              }
+              if (state is SelectCountryLoadingState) {
+                return const LoadingCountryWidget();
+              }
+              if (state is SelectCountryShowCountryState) {
+                return ShowCountryWidget(
+                  country: state.country,
+                );
+              }
+              return const SizedBox();
+            }),
+          ),
+        ),
       ),
     );
   }
