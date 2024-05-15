@@ -3,7 +3,12 @@ import 'package:lottie/lottie.dart';
 import 'package:map_study/select_country/widgets/definitios.dart';
 
 class LoadingCountryWidget extends StatelessWidget {
-  const LoadingCountryWidget({super.key});
+  final String text;
+
+  const LoadingCountryWidget({
+    super.key,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +17,9 @@ class LoadingCountryWidget extends StatelessWidget {
       color: Colors.white,
       child: Column(children: [
         const Spacer(),
-        const Center(
+        Center(
           child: Text(
-            "Procurando país...",
+            text,
             style: titleStyle,
           ),
         ),

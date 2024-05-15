@@ -4,7 +4,11 @@ abstract class SelectCountryState {}
 
 class SelectCountrySearchState extends SelectCountryState {}
 
-class SelectCountryLoadingState extends SelectCountryState {}
+class SelectCountryLoadingState extends SelectCountryState {
+  final String message;
+
+  SelectCountryLoadingState({required this.message});
+}
 
 class SelectCountryShowCountryState extends SelectCountryState {
   final CountryData country;

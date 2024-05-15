@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:map_study/select_country/widgets/definitios.dart';
 
 class PrayingCard extends StatelessWidget {

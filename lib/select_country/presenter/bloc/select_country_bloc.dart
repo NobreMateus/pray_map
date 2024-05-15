@@ -1,14 +1,17 @@
-import 'dart:math';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:map_study/select_country/data/select_country_repository.dart';
+import 'package:map_study/domain/use_cases/get_pray_country_use_case/get_pray_country_use_case.dart';
+import 'package:map_study/domain/use_cases/pray_for_country_use_case/pray_for_country_use_case.dart';
 import 'package:map_study/select_country/presenter/bloc/select_country_event.dart';
 import 'package:map_study/select_country/presenter/bloc/select_country_state.dart';
 
 class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
-  final SelectCountryRepository repository;
+  final GetPrayCountryUseCase getPrayCountryUseCase;
+  final PrayForCountryUseCase prayForCountryUseCase;
 
-  SelectCountrBloc(this.repository) : super(SelectCountrySearchState()) {
+  SelectCountrBloc({
+    required this.getPrayCountryUseCase,
+    required this.prayForCountryUseCase,
+  }) : super(SelectCountrySearchState()) {
     on<PerformSelectCountryEvent>(onPerformSelectCountryEvent);
     on<FinishLoadingEvent>(onFinishLoadingEvent);
     on<BackToStartEvent>(onBackToStartEvent);
@@ -19,10 +22,9 @@ class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
     PerformSelectCountryEvent event,
     Emitter<SelectCountryState> emit,
   ) async {
-    emit(SelectCountryLoadingState());
+    emit(SelectCountryLoadingState(message: "Procurando Países..."));
     await Future.delayed(const Duration(seconds: 3));
-    final countries = await repository.getCountries();
-    final selectedCountry = countries[0];
+    final selectedCountry = await getPrayCountryUseCase.execute();
     emit(SelectCountryShowCountryState(country: selectedCountry));
   }
 
@@ -43,10 +45,10 @@ class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
     Emitter<SelectCountryState> emit,
   ) async {
     final country = (state as SelectCountryShowCountryState).country;
-    emit(SelectCountryLoadingState());
+    emit(SelectCountryLoadingState(message: "Salvando oração por ${country.nomePt}..."));
     await Future.wait(
       [
-        repository.pray(country.nomeEn),
+        prayForCountryUseCase.execute(country.nomeEn),
         Future.delayed(const Duration(seconds: 3)),
       ],
     );

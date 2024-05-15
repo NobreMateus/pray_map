@@ -39,6 +39,14 @@ class ShowCountryWidget extends StatelessWidget {
                             height: 450,
                             child: Image.network(
                               country.linkBandeira,
+                              loadingBuilder: (context, child, progress) {
+                                if (progress == null) {
+                                  return child;
+                                }
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              },
                               fit: BoxFit.fitWidth,
                             ),
                           ),
