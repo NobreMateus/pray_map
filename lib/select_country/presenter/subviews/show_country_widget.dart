@@ -97,6 +97,11 @@ class ShowCountryWidget extends StatelessWidget {
                           PrayingCard(
                             pedidosOracao: country.pedidosOracao,
                           ),
+                          const SizedBox(height: 16),
+                          GeneralInfoCard(
+                            title: "Fonte",
+                            content: country.fonte,
+                          ),
                         ],
                       ),
                     ),
