@@ -11,11 +11,19 @@ class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
   SelectCountrBloc({
     required this.getPrayCountryUseCase,
     required this.prayForCountryUseCase,
-  }) : super(SelectCountrySearchState()) {
+  }) : super(SelectCountryIntroState()) {
+    on<PerformIntroStart>(onPerformIntroStart);
     on<PerformSelectCountryEvent>(onPerformSelectCountryEvent);
     on<FinishLoadingEvent>(onFinishLoadingEvent);
     on<BackToStartEvent>(onBackToStartEvent);
     on<PrayedEvent>(onPrayedEvent);
+  }
+
+  onPerformIntroStart(
+    PerformIntroStart event,
+    Emitter<SelectCountryState> emit,
+  ) {
+    emit(SelectCountrySearchState());
   }
 
   onPerformSelectCountryEvent(
@@ -37,7 +45,7 @@ class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
     BackToStartEvent event,
     Emitter<SelectCountryState> emit,
   ) {
-    emit(SelectCountrySearchState());
+    emit(SelectCountryIntroState());
   }
 
   onPrayedEvent(

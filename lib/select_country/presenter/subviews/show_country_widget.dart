@@ -62,8 +62,8 @@ class ShowCountryWidget extends StatelessWidget {
                               SizedBox(
                                 width: (constraints.maxWidth / 2) - 8,
                                 child: NumberInfoCard(
-                                  number: country.cristaos.split(" ")[0],
-                                  unity: country.cristaos.split(" ")[1],
+                                  number: country.cristaos,
+                                  unity: "",
                                   info: "cristãos",
                                 ),
                               ),
@@ -71,8 +71,8 @@ class ShowCountryWidget extends StatelessWidget {
                               SizedBox(
                                 width: (constraints.maxWidth / 2) - 8,
                                 child: NumberInfoCard(
-                                  number: country.cristaosEvangelicos.split(" ")[0],
-                                  unity: country.cristaosEvangelicos.split(" ")[1],
+                                  number: country.cristaosEvangelicos,
+                                  unity: "",
                                   info: "cristãos evangélicos",
                                 ),
                               ),

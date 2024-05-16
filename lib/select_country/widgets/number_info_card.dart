@@ -32,15 +32,15 @@ class NumberInfoCard extends StatelessWidget {
         child: Column(
           children: [
             Text(
+              info,
+              style: commomTextStyle.copyWith(fontWeight: FontWeight.bold),
+            ),
+            Text(
               number,
-              style: bigTitleStyle,
+              style: commomTextStyle,
             ),
             Text(
               unity,
-              style: smallTitleStyle,
-            ),
-            Text(
-              info,
               style: commomTextStyle,
             ),
           ],

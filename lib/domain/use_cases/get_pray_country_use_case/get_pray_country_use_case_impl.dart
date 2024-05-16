@@ -14,7 +14,7 @@ class GetPrayCountryUseCaseImpl extends GetPrayCountryUseCase {
     final countries = await repository.getCountries();
     final doneCountries = await repository.getDoneCountries();
     final filteredCountries = countries.where((element) => !doneCountries.contains(element.nomeEn)).toList();
-    final randomCountry = filteredCountries[Random().nextInt(filteredCountries.length - 1)];
+    final randomCountry = filteredCountries[Random().nextInt(filteredCountries.length)];
     return randomCountry;
   }
 }
