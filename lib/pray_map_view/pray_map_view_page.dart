@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:map_study/countries.dart';
-import 'package:map_study/domain/countries.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
 class MyMap extends StatefulWidget {

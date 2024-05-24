@@ -53,13 +53,14 @@ class SelectCountrBloc extends Bloc<SelectCountryEvent, SelectCountryState> {
     Emitter<SelectCountryState> emit,
   ) async {
     final country = (state as SelectCountryShowCountryState).country;
-    emit(SelectCountryLoadingState(message: "Salvando oração por ${country.nomePt}..."));
+    emit(SelectCountryLoadingState(
+        message: "Salvando oração por ${country.nomePt}..."));
     await Future.wait(
       [
         prayForCountryUseCase.execute(country.nomeEn),
         Future.delayed(const Duration(seconds: 3)),
       ],
     );
-    emit(SelectCountrySearchState());
+    emit(SelectCountryCongratsState());
   }
 }

@@ -5,6 +5,7 @@ import 'package:map_study/domain/use_cases/pray_for_country_use_case/pray_for_co
 import 'package:map_study/select_country/data/select_country_repository.dart';
 import 'package:map_study/select_country/presenter/bloc/select_country_bloc.dart';
 import 'package:map_study/select_country/presenter/bloc/select_country_state.dart';
+import 'package:map_study/select_country/presenter/subviews/congrats_widget.dart';
 import 'package:map_study/select_country/presenter/subviews/intro_widget.dart';
 import 'package:map_study/select_country/presenter/subviews/loading_country_widget.dart';
 import 'package:map_study/select_country/presenter/subviews/show_country_widget.dart';
@@ -36,8 +37,10 @@ class _SelectCountryPageState extends State<SelectCountryPage> {
         create: (_) => _bloc,
         child: Center(
           child: SizedBox(
-            width: MediaQuery.of(context).size.width > 500 ? 500 : double.infinity,
-            child: BlocBuilder<SelectCountrBloc, SelectCountryState>(builder: (context, state) {
+            width:
+                MediaQuery.of(context).size.width > 500 ? 500 : double.infinity,
+            child: BlocBuilder<SelectCountrBloc, SelectCountryState>(
+                builder: (context, state) {
               if (state is SelectCountryIntroState) {
                 return const IntroWidget();
               }
@@ -53,6 +56,9 @@ class _SelectCountryPageState extends State<SelectCountryPage> {
                 return ShowCountryWidget(
                   country: state.country,
                 );
+              }
+              if (state is SelectCountryCongratsState) {
+                return const CongratsWidget();
               }
               return const SizedBox();
             }),

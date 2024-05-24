@@ -17,3 +17,5 @@ class SelectCountryShowCountryState extends SelectCountryState {
 
   SelectCountryShowCountryState({required this.country});
 }
+
+class SelectCountryCongratsState extends SelectCountryState {}
