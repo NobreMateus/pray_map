@@ -16,17 +16,17 @@ class CongratsWidget extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(children: [
           const SizedBox(height: 24),
-          const Text(
+          const SelectableText(
             "Obrigado por orar conosco!",
             style: titleStyle,
           ),
           const SizedBox(height: 12),
-          const Text(
+          const SelectableText(
             "O país pelo qual você orou já está colorido no nosso mapa.",
             style: commomTextStyle,
           ),
           const SizedBox(height: 12),
-          const Text(
+          const SelectableText(
             "Seja um mobilizador hoje e convided outras pessoas a se unirem a esse propósito!",
             style: commomTextStyle,
           ),

@@ -26,22 +26,22 @@ class SearchCountryWidget extends StatelessWidget {
               style: titleStyle,
             ),
             const SizedBox(height: 16),
-            const Text(
+            const SelectableText(
               "1) Sorteie um país para orar no ícone abaixo;",
               style: commomTextStyle,
             ),
             const SizedBox(height: 8),
-            const Text(
+            const SelectableText(
               "2) Leia as informações e os pedidos de oração;",
               style: commomTextStyle,
             ),
             const SizedBox(height: 8),
-            const Text(
+            const SelectableText(
               "3) Ore pelo país no lugar onde você estiver ou visite a nossa sala de oração;",
               style: commomTextStyle,
             ),
             const SizedBox(height: 8),
-            const Text(
+            const SelectableText(
               "4) Conclua a oração, para que o país fique colorido no mapa!",
               style: commomTextStyle,
             ),

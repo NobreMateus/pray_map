@@ -35,7 +35,7 @@ class MainCountryInfoCard extends StatelessWidget {
         child: LayoutBuilder(builder: (context, constraints) {
           return Column(
             children: [
-              Text(
+              SelectableText(
                 country,
                 textAlign: TextAlign.center,
                 style: countryTitleStyle,

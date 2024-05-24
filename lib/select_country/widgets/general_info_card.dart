@@ -31,11 +31,11 @@ class GeneralInfoCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            SelectableText(
               title,
               style: titleStyle,
             ),
-            Text(
+            SelectableText(
               content,
               style: commomTextStyle,
             ),

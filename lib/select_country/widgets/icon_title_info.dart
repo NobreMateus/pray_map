@@ -21,12 +21,12 @@ class IconTitleInfo extends StatelessWidget {
           icon,
           size: 36,
         ),
-        Text(
+        SelectableText(
           title,
           style: smallTitleStyle,
           textAlign: TextAlign.center,
         ),
-        Text(
+        SelectableText(
           info,
           style: commomTextStyle,
           textAlign: TextAlign.center,

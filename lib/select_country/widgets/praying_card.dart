@@ -31,7 +31,7 @@ class PrayingCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            const SelectableText(
               "Pedidos de Oração",
               style: titleStyle,
             ),
@@ -44,10 +44,10 @@ class PrayingCard extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 24,
-                        child: Text((i + 1).toString()),
+                        child: SelectableText((i + 1).toString()),
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           pedidosOracao[i],
                           style: commomTextStyle,
                         ),

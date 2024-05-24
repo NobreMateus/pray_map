@@ -31,15 +31,15 @@ class NumberInfoCard extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text(
+            SelectableText(
               info,
               style: commomTextStyle.copyWith(fontWeight: FontWeight.bold),
             ),
-            Text(
+            SelectableText(
               number,
               style: commomTextStyle,
             ),
-            Text(
+            SelectableText(
               unity,
               style: commomTextStyle,
             ),

@@ -18,7 +18,7 @@ class LoadingCountryWidget extends StatelessWidget {
       child: Column(children: [
         const Spacer(),
         Center(
-          child: Text(
+          child: SelectableText(
             text,
             style: titleStyle,
           ),
