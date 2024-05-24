@@ -1,1 +1,10 @@
-{"flutter":{"platforms":{"dart":{"lib/firebase_options.dart":{"projectId":"my-gifts-573e1","configurations":{"web":"1:293647526612:web:b0dcb183d1d4016f30a941"}}}}}}
+{
+  "hosting": {
+    "public": "/build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -24,10 +24,12 @@ class IconTitleInfo extends StatelessWidget {
         Text(
           title,
           style: smallTitleStyle,
+          textAlign: TextAlign.center,
         ),
         Text(
           info,
           style: commomTextStyle,
+          textAlign: TextAlign.center,
         ),
       ],
     );

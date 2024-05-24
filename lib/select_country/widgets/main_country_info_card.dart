@@ -48,7 +48,7 @@ class MainCountryInfoCard extends StatelessWidget {
                     child: IconTitleInfo(
                       icon: Icons.approval_outlined,
                       title: "Continente",
-                      info: continent,
+                      info: continent.replaceAll(".", ""),
                     ),
                   ),
                   const Spacer(),
@@ -57,7 +57,7 @@ class MainCountryInfoCard extends StatelessWidget {
                     child: IconTitleInfo(
                       icon: Icons.place_outlined,
                       title: "Capital",
-                      info: continent,
+                      info: capital.replaceAll(".", ""),
                     ),
                   ),
                   const Spacer(),
@@ -66,7 +66,7 @@ class MainCountryInfoCard extends StatelessWidget {
                     child: IconTitleInfo(
                       icon: Icons.people_outline,
                       title: "População",
-                      info: population,
+                      info: population.replaceAll(".", ""),
                     ),
                   ),
                 ],

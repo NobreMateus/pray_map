@@ -64,7 +64,7 @@ class ShowCountryWidget extends StatelessWidget {
                                 child: NumberInfoCard(
                                   number: country.cristaos,
                                   unity: "",
-                                  info: "cristãos",
+                                  info: "Cristãos",
                                 ),
                               ),
                               const Spacer(),
@@ -73,7 +73,7 @@ class ShowCountryWidget extends StatelessWidget {
                                 child: NumberInfoCard(
                                   number: country.cristaosEvangelicos,
                                   unity: "",
-                                  info: "cristãos evangélicos",
+                                  info: "Cristãos Evangélicos",
                                 ),
                               ),
                             ],

@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:map_study/firebase_options.dart';
 import 'package:map_study/pray_map_view/pray_map_view_page.dart';
 import 'package:map_study/select_country/presenter/select_country_page.dart';
-import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setPathUrlStrategy();
   runApp(const MyApp());
 }
 
