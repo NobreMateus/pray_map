@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:map_study/select_country/presenter/bloc/select_country_bloc.dart';
-import 'package:map_study/select_country/presenter/bloc/select_country_event.dart';
-import 'package:map_study/select_country/widgets/definitios.dart';
+import 'package:orar_pelos_paises/select_country/presenter/bloc/select_country_bloc.dart';
+import 'package:orar_pelos_paises/select_country/presenter/bloc/select_country_event.dart';
+import 'package:orar_pelos_paises/select_country/widgets/definitios.dart';
 
 class CongratsWidget extends StatelessWidget {
   const CongratsWidget({super.key});
@@ -27,10 +27,21 @@ class CongratsWidget extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const SelectableText(
-            "Seja um mobilizador hoje e convided outras pessoas a se unirem a esse propósito!",
+            "Seja um mobilizador hoje e convide outras pessoas a se unirem a esse propósito!",
             style: commomTextStyle,
           ),
           const SizedBox(height: 24),
+          SizedBox(
+            width: double.infinity,
+            height: 48,
+            child: OutlinedButton(
+              onPressed: () {
+                bloc.add(BackToStartEvent());
+              },
+              child: const Text("VOLTAR PARA INÍCIO"),
+            ),
+          ),
+          const SizedBox(height: 12),
           SizedBox(
             width: double.infinity,
             height: 48,
@@ -39,17 +50,6 @@ class CongratsWidget extends StatelessWidget {
                 Navigator.of(context).pushNamed('/');
               },
               child: const Text("VER MAPA"),
-            ),
-          ),
-          const SizedBox(height: 24),
-          SizedBox(
-            width: double.infinity,
-            height: 48,
-            child: ElevatedButton(
-              onPressed: () {
-                bloc.add(BackToStartEvent());
-              },
-              child: const Text("VOLTAR PARA INÍCIO"),
             ),
           ),
         ]),

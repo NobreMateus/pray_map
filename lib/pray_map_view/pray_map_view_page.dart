@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:map_study/countries.dart';
+import 'package:orar_pelos_paises/countries.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
 class MyMap extends StatefulWidget {
@@ -83,7 +83,6 @@ class _MyMapState extends State<MyMap> {
         return country;
       }).toList();
 
-      print(filteredCountriesModel);
       setState(() {
         _mapData = countriesModel;
       });
@@ -104,12 +103,20 @@ class _MyMapState extends State<MyMap> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SfMaps(
-          layers: [
-            MapShapeLayer(
-              source: _generateSource(),
-            ),
-          ],
+        child: Container(
+          color: Colors.black87,
+          child: SfMaps(
+            layers: [
+              MapShapeLayer(
+                source: _generateSource(),
+                zoomPanBehavior: MapZoomPanBehavior(
+                  zoomLevel: 3,
+                  enableDoubleTapZooming: true,
+                  enableMouseWheelZooming: true,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

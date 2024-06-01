@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:map_study/select_country/widgets/definitios.dart';
+import 'package:orar_pelos_paises/select_country/widgets/definitios.dart';
 
 class LoadingCountryWidget extends StatelessWidget {
   final String text;

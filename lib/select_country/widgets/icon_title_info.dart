@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:map_study/select_country/widgets/definitios.dart';
+import 'package:orar_pelos_paises/select_country/widgets/definitios.dart';
 
 class IconTitleInfo extends StatelessWidget {
   final String title;

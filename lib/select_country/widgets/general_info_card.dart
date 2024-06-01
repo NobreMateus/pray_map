@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:map_study/select_country/widgets/definitios.dart';
+import 'package:orar_pelos_paises/select_country/widgets/definitios.dart';
 
 class GeneralInfoCard extends StatelessWidget {
   final String title;
@@ -18,13 +18,10 @@ class GeneralInfoCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Colors.black12,
+          color: const Color(0xffF0F0F0),
           width: 1,
         ),
         color: Colors.white,
-        boxShadow: const [
-          BoxShadow(color: Colors.black26, offset: Offset(2, 2), blurRadius: 2),
-        ],
       ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),

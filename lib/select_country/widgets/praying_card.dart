@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:map_study/select_country/widgets/definitios.dart';
+import 'package:orar_pelos_paises/select_country/widgets/definitios.dart';
 
 class PrayingCard extends StatelessWidget {
   final List<String> pedidosOracao;
@@ -15,18 +15,15 @@ class PrayingCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: Colors.black12,
+          color: const Color(0xffF0F0F0),
           width: 1,
         ),
         color: Colors.white,
-        boxShadow: const [
-          BoxShadow(color: Colors.black26, offset: Offset(2, 2), blurRadius: 2),
-        ],
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 8,
-          vertical: 8,
+          horizontal: 12,
+          vertical: 12,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,13 +36,10 @@ class PrayingCard extends StatelessWidget {
             for (int i = 0; i < pedidosOracao.length; i++)
               Column(
                 children: [
+                  const SizedBox(height: 8),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: 24,
-                        child: SelectableText((i + 1).toString()),
-                      ),
                       Expanded(
                         child: SelectableText(
                           pedidosOracao[i],
@@ -55,6 +49,10 @@ class PrayingCard extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 8),
+                  if (i != pedidosOracao.length - 1)
+                    const Divider(
+                      color: Colors.black12,
+                    ),
                 ],
               )
           ],

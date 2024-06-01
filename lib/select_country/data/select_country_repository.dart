@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/services.dart';
-import 'package:map_study/domain/country_data.dart';
+import 'package:orar_pelos_paises/domain/country_data.dart';
 
 abstract class SelectCountryRepository {
   Future<List<CountryData>> getCountries();
@@ -44,7 +44,10 @@ class SelectCountryRepositoryImp extends SelectCountryRepository {
 
   @override
   Future<List<String>> getDoneCountries() async {
-    final firData = await FirebaseFirestore.instance.collection('country_pray').doc('first').get();
+    final firData = await FirebaseFirestore.instance
+        .collection('country_pray')
+        .doc('first')
+        .get();
     final firList = firData.data()?['done_countries'] as List<dynamic>;
     return firList.map((e) => e.toString()).toList();
   }
