@@ -16,6 +16,7 @@ class MyMap extends StatefulWidget {
 class _MyMapState extends State<MyMap> {
   List<MapModel> _mapData = <MapModel>[];
   List<MapModel> _allCountries = <MapModel>[];
+  bool _showDataLabels = false;
 
   final List<Color> _colors = const [
     Color(0xff9e0142),
@@ -99,6 +100,12 @@ class _MyMapState extends State<MyMap> {
     );
   }
 
+  final MapZoomPanBehavior _zoomPanBehavior = MapZoomPanBehavior(
+    zoomLevel: 3,
+    enableDoubleTapZooming: true,
+    enableMouseWheelZooming: true,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,11 +116,20 @@ class _MyMapState extends State<MyMap> {
             layers: [
               MapShapeLayer(
                 source: _generateSource(),
-                zoomPanBehavior: MapZoomPanBehavior(
-                  zoomLevel: 3,
-                  enableDoubleTapZooming: true,
-                  enableMouseWheelZooming: true,
-                ),
+                zoomPanBehavior: _zoomPanBehavior,
+                showDataLabels: _showDataLabels,
+                onWillZoom: (details) {
+                  if (details.newZoomLevel! >= 4.0) {
+                    setState(() {
+                      _showDataLabels = true;
+                    });
+                  } else {
+                    setState(() {
+                      _showDataLabels = false;
+                    });
+                  }
+                  return true;
+                },
               ),
             ],
           ),
